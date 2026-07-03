@@ -1,0 +1,4 @@
+videos/*/*.mp4 filter=lfs diff=lfs merge=lfs -text
+CNN_Models/*.keras filter=lfs diff=lfs merge=lfs -text
+YOLOv8_Accident_Model/*.pt filter=lfs diff=lfs merge=lfs -text
+YOLOv8_Severity_Model/*.pt filter=lfs diff=lfs merge=lfs -text
