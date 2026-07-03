@@ -2,3 +2,5 @@ CNN_Models/*.keras
 YOLOv8_Accident_Model/*.pt
 YOLOv8_Severity_Model/*.pt
 videos/*.mp4
+__pycache__/
+*.pyc
