@@ -1,57 +1,107 @@
-# RoadGuard AI - AI-Powered Road Accident Live CCTV Application
+# RoadGuard AI
 
-RoadGuard AI is a Python-based traffic safety and incident response system that monitors live CCTV and recorded video streams to detect road accidents, classify severity, and support emergency dispatch workflows.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-100%25-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/YOLOv8-Object%20Detection-FF6B6B?style=for-the-badge" alt="YOLOv8" />
+  <img src="https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?style=for-the-badge" alt="Streamlit" />
+  <img src="https://img.shields.io/badge/Status-Active-00C853?style=for-the-badge" alt="Status" />
+</p>
 
-The application combines computer vision, real-time monitoring, database logging, and dashboard analytics to provide a command-center style interface for road safety operations.
+<p align="center">
+  <strong>AI-Powered Road Accident Live CCTV Application</strong>
+</p>
 
-## Overview
+<p align="center">
+  A real-time intelligent traffic monitoring and emergency response dashboard designed to detect road accidents from CCTV feeds, classify severity, and support dispatch operations.
+</p>
 
-This project is designed to:
+---
 
-- detect road accidents in CCTV/video feeds using YOLOv8-based models
-- classify accident severity such as Minor, Substantial, and Critical
-- monitor abnormal traffic patterns and near-miss risk indicators
-- log incidents and dispatch records in SQLite
-- send alerts through SMS, email, WhatsApp, and webhooks
-- visualize historical trends and incident distribution on a dashboard
+## 🚨 Project Highlights
 
-## Features
+- Real-time accident detection from live camera and recorded video streams
+- YOLOv8-based vehicle accident recognition
+- Severity classification: Minor, Substantial, Critical
+- Near-miss motion analysis using optical flow heuristics
+- Automated alerting through SMS, WhatsApp, email, and webhook systems
+- SQLite-powered incident and dispatch logging
+- Streamlit dashboard with multiple operational tabs
 
-- Real-time accident detection from image, video, and webcam inputs
-- Custom YOLOv8 accident detection model
-- Severity classification for detected incidents
-- Optical flow-based motion analytics for near-miss detection
-- Emergency dispatch module for police, hospital, and rescue coordination
-- SQLite-backed incident records and dispatch logs
-- Interactive Streamlit dashboard with tabs for:
-  - executive overview
-  - live CCTV command station
-  - near-miss analytics
-  - spatial trends
-  - emergency dispatch hub
-  - metrics and calibration settings
+---
 
-## Project Structure
+## 🧭 Overview
+
+RoadGuard AI is a smart road safety command system built for continuous vehicle traffic analysis. It monitors urban road conditions, identifies possible accident events, classifies risk severity, and promotes quick emergency coordination using automated alerts.
+
+This repository contains a full demo-style application that mimics a traffic command center and provides:
+
+- live CCTV monitoring interfaces
+- model-based accident inference
+- severity analysis
+- historical trend analytics
+- GIS-style hotspot mapping
+- emergency dispatch reporting
+
+---
+
+## 🏗️ System Architecture
+
+```text
+CCTV / Video Input
+        ↓
+YOLOv8 Accident Detection Model
+        ↓
+Severity Classification Model
+        ↓
+Traffic Analysis + Near-Miss Logic
+        ↓
+SQLite Incident Database
+        ↓
+Streamlit Command Dashboard
+        ↓
+Alerts / Dispatch / Reporting
+```
+
+---
+
+## ✨ Core Features
+
+| Feature | Description |
+|---|---|
+| Accident Detection | Detects accident events in live or recorded footage |
+| Severity Analysis | Identifies whether an incident is Minor, Substantial, or Critical |
+| Optical Flow Monitoring | Tracks abnormal motion and near-miss risk indicators |
+| Emergency Alerts | Logs and triggers SMS, WhatsApp, email, and webhook dispatch actions |
+| Incident Dashboard | Displays vehicle flow, trends, alerts, and operational status |
+| Reporting | Generates printable incident and report exports |
+| Data Storage | Uses SQLite to store history and dispatch records |
+
+---
+
+## 📁 Repository Structure
 
 ```text
 AI_PoweredRoadAccidentLiveCCTVApplication/
 ├── app.py                          # Main Streamlit application
-├── db_manager.py                  # SQLite database helpers and incident storage
+├── db_manager.py                  # Database utilities and incident storage
 ├── README.md                      # Project documentation
 ├── roadguard.db                   # SQLite database
-├── roadguard_history.json         # Legacy incident history
-├── roadguard_dispatch_logs.json   # Legacy dispatch records
-├── yolov8n.pt                     # Base YOLOv8 COCO weights
-├── CNN_Models/                    # CNN-related model assets
-├── YOLOv8_Accident_Model/         # Accident detection model weights
-├── YOLOv8_Severity_Model/         # Severity classification model weights
-├── videos/                        # Demo CCTV / road accident videos
+├── roadguard_history.json         # Historical incident records
+├── roadguard_dispatch_logs.json   # Dispatch event logs
+├── yolov8n.pt                     # Base YOLOV8 weights
+├── CNN_Models/                    # CNN model assets
+├── YOLOv8_Accident_Model/         # Accident detection model folder
+├── YOLOv8_Severity_Model/         # Severity classifier model folder
+├── videos/                        # Demo traffic videos
 ├── .gitignore                     # Git ignore rules
 ├── .gitattributes                 # Git attributes
-└── AI-Powered Road Accident Detection.code-workspace
+├── AI-Powered Road Accident Detection.code-workspace
+└── LICENSE                       # Optional project license (if added later)
 ```
 
-## Technology Stack
+---
+
+## 🧪 Tech Stack
 
 - Python
 - OpenCV
@@ -63,101 +113,133 @@ AI_PoweredRoadAccidentLiveCCTVApplication/
 - Pillow
 - SQLite
 
-## Installation
+---
 
-1. Clone the repository:
+## ⚙️ Installation
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Hoor-Fayaz/AI_PoweredRoadAccidentLiveCCTVApplication.git
 cd AI_PoweredRoadAccidentLiveCCTVApplication
 ```
 
-2. Create and activate a virtual environment:
+### 2. Create a virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-On Windows:
+Activate it:
+
+- Windows:
 
 ```bash
 .venv\Scripts\activate
 ```
 
-On macOS/Linux:
+- macOS/Linux:
 
 ```bash
 source .venv/bin/activate
 ```
 
-3. Install dependencies:
+### 3. Install dependencies
 
 ```bash
 pip install ultralytics opencv-python pandas numpy pillow plotly streamlit
 ```
 
-## Model Requirements
+---
 
-The application expects trained YOLOv8 model files to be available in the following locations:
+## 🧠 Model Requirements
+
+The app expects trained YOLOv8 model files inside the project directories:
 
 ```text
 YOLOv8_Accident_Model/best.pt
 YOLOv8_Severity_Model/best.pt
 ```
 
-If the model files are not present, the app may show loading errors or fail to run inference.
+If these models are missing, the application may show errors or fail to run inference.
 
-## Running the App
+---
 
-From the project root, start the dashboard with:
+## ▶️ Run the Application
+
+From the repository root, run:
 
 ```bash
 streamlit run app.py
 ```
 
-Then open the local Streamlit URL in your browser (typically `http://localhost:8501`).
+Then open the local URL displayed in the terminal, usually:
 
-## Usage
+```text
+http://localhost:8501
+```
 
-After the app starts:
+---
 
-- select a CCTV source or upload a video/image
-- tune the accident sensitivity threshold if needed
-- initiate the active scan
-- review real-time annotations, severity, and dispatch events
-- monitor alert logs and incident reports in the dispatch dashboard
+## 🎛️ Application Workflow
 
-## Features in Detail
+1. Open the Streamlit app
+2. Select a CCTV feed or upload a video/image file
+3. Tune the detection sensitivity
+4. Start the inference scan
+5. View accident classification and severity results
+6. Review dispatch logs, trends, and reports
 
-### Accident Detection
-The system uses YOLOv8 object detection to identify accidents from roadway footage and classify whether the frame shows an unsafe or normal traffic scenario.
+---
 
-### Severity Classification
-A second YOLOv8 model estimates the severity of an incident and labels it as Minor, Substantial, or Critical.
+## 🚑 Alerting Capabilities
 
-### Dispatch Automation
-The project includes helper logic to create automated alerts for:
+The application can simulate dispatch workflows through:
 
-- SMS via Twilio
-- WhatsApp messages and quick-open links
-- Email notifications via SMTP
-- Webhook payloads for municipal or CAD systems
+- SMS alerts
+- WhatsApp notifications
+- Email dispatch instructions
+- CAD-style webhook payloads
 
-### Incident Logging
-All accident records and dispatch events are stored in SQLite for later review, analytics, and report generation.
+These systems are useful for emergency response planning and road traffic monitoring demonstrations.
 
-## Notes
+---
 
-This project is intended for academic, research, and demonstration use. For production deployment, you should harden configuration, secure credentials, validate models on representative data, and add proper deployment and monitoring infrastructure.
+## 📊 Dashboard Tabs
 
-## License
+The app includes several operational tabs such as:
 
-This repository does not currently include a license file. If you plan to distribute or reuse it publicly, add an appropriate license before publishing.
+- Executive Landing Page
+- CCTV Command Station
+- Near-Miss Prediction
+- Spatial & Trend Analytics
+- Emergency Dispatch Hub
+- Model Performance Curves
+- Calibration Settings
 
-## Author
+---
+
+## 📝 Notes
+
+This project is designed for academic, research, and demonstration purposes. For production usage, it is recommended to:
+
+- secure credentials and API keys
+- validate the model on real-world traffic datasets
+- deploy with robust monitoring and logging
+- add proper access control and infrastructure protections
+
+---
+
+## 👤 Author
 
 Hoor Fayaz
 
-## Repository
+---
 
-GitHub: https://github.com/Hoor-Fayaz/AI_PoweredRoadAccidentLiveCCTVApplication
+## 🔗 Repository
+
+https://github.com/Hoor-Fayaz/AI_PoweredRoadAccidentLiveCCTVApplication
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Made%20with-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Made with Python" />
+</p>
